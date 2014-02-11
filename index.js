@@ -105,7 +105,8 @@ TextHistory.prototype.onchange = function(e){
  * @return {String} 
  */
 
-TextHistory.prototype.contents = function(){
+TextHistory.prototype.contents = function(content){
+  if (content) return this.el.innerHTML = content;
   return this.el.innerHTML;
 };
 
