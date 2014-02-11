@@ -1,0 +1,23 @@
+{
+  "name": "text-history",
+  "repo": "bmcmahen/text-history",
+  "description": "custom history stack/implementation for text editor",
+  "version": "0.0.1",
+  "keywords": ["history", "editor", "text"],
+  "dependencies": {
+    "yields/k": "*",
+    "bmcmahen/is-key": "*",
+    "component/debounce": "*",
+    "bmcmahen/cursor-move": "*",
+    "component/events": "*",
+    "bmcmahen/selection-range": "*",
+    "component/emitter": "*",
+    "bmcmahen/history": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
