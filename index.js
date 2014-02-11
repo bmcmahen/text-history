@@ -8,7 +8,7 @@ var isKey = require('is-key');
 var debounce = require('debounce');
 var cursorMove = require('cursor-move');
 var events = require('events');
-var selection = window.getSelection():
+var selection = window.getSelection();
 var selectionRange = require('selection-range');
 var Emitter = require('emitter');
 
@@ -45,7 +45,7 @@ TextHistory.prototype.bind = function(){
   this.cursor.on('change', this.prepareToAdd.bind(this));
   this.k = k(this.el);
   this.k('super + z', this.undo.bind(this));
-  this.k('super + k', this.redo.bind(this));
+  this.k('super + shift + z', this.redo.bind(this));
   this.events = events(this.el, this);
   this.events.bind('keydown', 'onkeydown');
   this.events.bind('keypress', 'onkeypress');
@@ -143,8 +143,8 @@ TextHistory.prototype.add = function(stay){
 
 TextHistory.prototype.restoreCursor = function(buf){
   if (typeof buf.start != 'undefined'){
-    if (buf.end) selectionRange(this.$el[0], buf.start, buf.end);
-    else selectionRange(this.$el[0], buf.start);
+    if (buf.end) selectionRange(this.el, buf.start, buf.end);
+    else selectionRange(this.el, buf.start);
   }
 };
 
@@ -153,7 +153,10 @@ TextHistory.prototype.restoreCursor = function(buf){
  */
 
 TextHistory.prototype.undo = function(e){
-  if (e) e.preventDefault();
+  if (e) {
+    e.preventDefault();
+    if (e.shiftKey) return;
+  }
   if (!this.firstUndo){
     this.history.back();
   } else {
