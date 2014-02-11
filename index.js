@@ -128,7 +128,7 @@ TextHistory.prototype.add = function(stay){
   }
   buf.start = buf.start || 0;
   var current = this.history.current();
-  if (current && buf.valueOf() == current.valueOf() 
+  if (buf.valueOf() == (current && current.valueOf()) 
     && buf.start == current.start
     && buf.end == current.end
     ) return;
@@ -157,11 +157,12 @@ TextHistory.prototype.undo = function(e){
     e.preventDefault();
     if (e.shiftKey) return;
   }
-  if (!this.firstUndo){
-    this.history.back();
-  } else {
+
+  if (this.firstUndo) {
     this.add(true);
     this.firstUndo = false;
+  } else {
+    this.history.back();
   }
 
   var buf = this.history.current();
