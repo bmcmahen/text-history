@@ -1,7 +1,7 @@
 
 # text-history
 
-  Very much a WIP (which you probably shouldn't use right now). The goal is to create a custom history stack/implementation for a text editor which operates like that found on your os. 
+  Very much a work in progress... The goal is to create a custom history stack/implementation for a text editor which operates like that found on your os. Useful primarily if you're dealing with contenteditable and programatically altering the dom. 
 
 ## Installation
 
@@ -21,7 +21,7 @@ var textHistory = new TextHistory(el);
 
   The MIT License (MIT)
 
-  Copyright (c) 2014 <copyright holders>
+  Copyright (c) 2014 Ben McMahen
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

@@ -8,9 +8,9 @@
     "yields/k": "*",
     "bmcmahen/is-key": "*",
     "component/debounce": "*",
-    "bmcmahen/cursor-move": "*",
+    "bmcmahen/cursor-move": "0.0.1",
     "component/events": "*",
-    "bmcmahen/selection-range": "*",
+    "bmcmahen/selection-range": "0.0.3",
     "component/emitter": "*",
     "bmcmahen/history": "*"
   },
