@@ -1,7 +1,7 @@
 
 # text-history
 
-  Very much a WIP. The goal is to create a custom history stack/implementation for a text editor which operates like that found on your os. 
+  Very much a WIP (which you probably shouldn't use right now). The goal is to create a custom history stack/implementation for a text editor which operates like that found on your os. 
 
 ## Installation
 

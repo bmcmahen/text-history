@@ -28,6 +28,7 @@ module.exports = TextHistory;
 function TextHistory(el, history){
   if (!(this instanceof TextHistory)) return new TextHistory(el, history);
   this.el = el;
+  this.addedToHistory = false;
   this.history = new History(history);
   this.bind();
 }
