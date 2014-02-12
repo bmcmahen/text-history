@@ -170,6 +170,7 @@ TextHistory.prototype.undo = function(e){
   this.contents(buf);
   this.restoreCursor(buf);
   this.emit('undo', buf);
+  this.emit('restore', buf);
 };
 
 /**
@@ -187,6 +188,7 @@ TextHistory.prototype.redo = function(e){
   this.contents(buf);
   this.restoreCursor(buf);
   this.emit('redo', buf);
+  this.emit('restore', buf);
 };
 
 /**
