@@ -3,7 +3,7 @@
  */
 
 var History = require('history');
-var k = require('k');
+var shortcuts = require('shortcuts');
 var isKey = require('is-key');
 var debounce = require('debounce');
 var cursorMove = require('cursor-move');
@@ -42,10 +42,11 @@ Emitter(TextHistory.prototype);
 TextHistory.prototype.bind = function(){
   this.delayedHistory = debounce(this.prepareToAdd.bind(this), 1000);
   this.cursor = cursorMove(this.el);
-  this.cursor.on('change', this.prepareToAdd.bind(this));
-  this.k = k(this.el);
-  this.k('super + z', this.undo.bind(this));
-  this.k('super + shift + z', this.redo.bind(this));
+  this._boundPrepare = this.prepareToAdd.bind(this);
+  this.cursor.on('change', this._boundPrepare);
+  this.shortcuts = shortcuts(this.el, this);
+  this.shortcuts.bind('super + z', 'undo');
+  this.shortcuts.bind('super + shift + z', 'redo');
   this.events = events(this.el, this);
   this.events.bind('keydown', 'onkeydown');
   this.events.bind('keypress', 'onkeypress');
@@ -60,6 +61,8 @@ TextHistory.prototype.bind = function(){
 TextHistory.prototype.unbind = function(){
   this.cursor.unbind();
   this.events.unbind();
+  this.shortcuts.unbind();
+  this.cursor.off('change', this._boundPrepare);
 };
 
 /**

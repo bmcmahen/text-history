@@ -2,10 +2,10 @@
   "name": "text-history",
   "repo": "bmcmahen/text-history",
   "description": "custom history stack/implementation for text editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["history", "editor", "text"],
   "dependencies": {
-    "yields/k": "*",
+    "yields/shortcuts": "*",
     "bmcmahen/is-key": "*",
     "component/debounce": "*",
     "bmcmahen/cursor-move": "0.0.1",
